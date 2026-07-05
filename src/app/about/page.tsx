@@ -39,7 +39,7 @@ export default function AboutPage() {
           รายวิชา: IN403101 Front-end Web Programming
         </p>
         <p className={styles.paragraph}>
-          Source: <a href="https://github.com/" className={styles.link}>GitHub Repository</a>
+          Source: <a href="https://github.com/DGlovecraft/PokemonWEB.git" className={styles.link}>GitHub Repository</a>
         </p>
         <p className={styles.paragraph}>
           This project fetches Pokémon data from the <a href="https://pokeapi.co/api/v2/" className={styles.link}>PokéAPI</a> and demonstrates paginated fetching, detail pages, skeleton loading, and responsive layout.
