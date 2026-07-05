@@ -1,0 +1,146 @@
+.page {
+  padding: 32px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+  border-radius: 32px;
+  box-shadow: 0 26px 70px rgba(37, 99, 235, 0.08);
+}
+
+.headerRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: clamp(2.25rem, 3vw, 3rem);
+  margin: 0;
+  color: #1e3a8a;
+}
+
+.meta {
+  color: #475569;
+}
+
+.backLink {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.imageCard {
+  background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imageCardInner {
+  width: 100%;
+  max-width: 320px;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.sectionTitle {
+  margin-bottom: 12px;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.types,
+.evolutions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+  color: #1e3a8a;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.statsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.statRow {
+  display: grid;
+  gap: 8px;
+}
+
+.statName {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.statBar {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.statFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.buttonRow {
+  margin-top: 18px;
+}
+
+.soundButton {
+  margin-top: 18px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.22);
+  cursor: pointer;
+}
+
+.soundButton:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .imageCard {
+    max-width: 100%;
+  }
+}
