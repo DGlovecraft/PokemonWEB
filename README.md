@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Web App
 
-## Getting Started
+เว็บแอปพลิเคชัน Pokédex ที่พัฒนาด้วย **Next.js** โดยดึงข้อมูลจาก **PokéAPI** ผู้ใช้สามารถดูรายชื่อ Pokémon ค้นหาข้อมูลของแต่ละตัว ดูสายวิวัฒนาการ และฟังเสียงร้องของ Pokémon ได้
 
-First, run the development server:
+---
+
+## ภาพรวมของโปรเจกต์
+
+โปรเจกต์นี้เป็นเว็บไซต์สำหรับแสดงข้อมูล Pokémon โดยมีความสามารถหลักดังนี้
+
+* แสดงรายชื่อ Pokémon แบบแบ่งหน้า (Pagination)
+* แสดงรายละเอียดของ Pokémon แต่ละตัว
+* แสดงภาพ Official Artwork
+* แสดงสายวิวัฒนาการ (Evolution Chain)
+* เล่นเสียงร้องของ Pokémon ผ่าน Proxy API
+
+---
+
+## เทคโนโลยีที่ใช้ (Tech Stack)
+
+โปรเจกต์นี้พัฒนาด้วยเทคโนโลยีดังต่อไปนี้
+
+* **Next.js 16** – Framework สำหรับพัฒนาเว็บแอปพลิเคชันด้วย React
+* **React 19** – ไลบรารีสำหรับสร้างส่วนติดต่อผู้ใช้งาน (UI)
+* **TypeScript** – ช่วยตรวจสอบชนิดข้อมูลเพื่อลดข้อผิดพลาดของโค้ด
+* **Material UI (MUI)** – ไลบรารีสำหรับออกแบบหน้าตาเว็บไซต์
+* **Next.js App Router** – ระบบจัดการเส้นทาง (Routing) ของ Next.js
+* **PokéAPI** – API สำหรับดึงข้อมูล Pokémon
+
+---
+
+## ฟีเจอร์ของระบบ
+
+### หน้าแรก (`/`)
+
+* แสดงรายชื่อ Pokémon แบบแบ่งหน้า
+* แสดงชื่อและรูปภาพของ Pokémon
+* สามารถกดเลือกเพื่อดูรายละเอียดของแต่ละตัวได้
+
+### หน้ารายละเอียด Pokémon (`/pokemon/[name]`)
+
+* แสดงภาพ Official Artwork
+* แสดงประเภท (Type)
+* แสดงค่าสถานะพื้นฐาน (Base Stats)
+* แสดงส่วนสูงและน้ำหนัก
+* แสดงสายวิวัฒนาการ (Evolution Chain)
+* สามารถเล่นเสียงร้องของ Pokémon ได้
+
+### หน้า About (`/about`)
+
+* แนะนำโปรเจกต์
+* อธิบายเทคโนโลยีและแหล่งข้อมูลที่นำมาใช้
+
+### ประสบการณ์การใช้งาน (User Experience)
+
+* แสดง Skeleton Loading ระหว่างรอโหลดข้อมูล
+* รองรับการแสดงผลทั้งบนคอมพิวเตอร์และอุปกรณ์พกพา (Responsive Design)
+* ใช้ Card Layout เพื่อให้ข้อมูลอ่านง่ายและเป็นระเบียบ
+
+---
+
+## การติดตั้งโปรเจกต์
+
+ติดตั้ง Dependencies
+
+```bash
+npm install
+```
+
+เริ่มต้น Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+จากนั้นเปิดเว็บเบราว์เซอร์ที่
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## การ Build สำหรับใช้งานจริง
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## แหล่งข้อมูล
 
-## Deploy on Vercel
+ข้อมูล Pokémon ทั้งหมดนำมาจาก **PokéAPI**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+https://pokeapi.co/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## โครงสร้างโปรเจกต์
+
+```
+src/
+├── app/
+│   ├── page.tsx               # หน้าแรก
+│   ├── pokemon/
+│   │   └── [name]/page.tsx    # หน้ารายละเอียด Pokémon
+│   ├── about/                 # หน้า About
+│   └── api/                   # API Routes
+├── components/                # Component ที่นำกลับมาใช้ซ้ำ
+├── lib/                       # ฟังก์ชันสำหรับเรียก API
+└── types/                     # TypeScript Types
+```
+
+---
+
+## หมายเหตุ
+
+โปรเจกต์นี้จัดทำขึ้นเพื่อการศึกษาและฝึกฝนการพัฒนาเว็บแอปพลิเคชันด้วย Next.js รวมถึงการใช้งาน API ภายนอกในการดึงข้อมูลมาแสดงผลบนเว็บไซต์
